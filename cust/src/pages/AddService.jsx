@@ -17,7 +17,7 @@ const AddService = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:5001/api/customers/${customerId}/services`, formData);
+            await axios.post(`https://customer-maintain.onrender.com/api/customers/${customerId}/services`, formData);
             navigate('/');
         } catch (err) {
             console.error('Failed to add service record', err);
