@@ -10,6 +10,18 @@ const Dashboard = () => {
             .then(res => setCustomers(res.data))
             .catch(err => console.error('Error fetching customers!', err));
     }, []);
+    const handleDelete = async (id) => {
+    if (window.confirm('Are you sure you want to delete this customer?')) {
+        try {
+            await axios.delete(`http://localhost:5001/api/customers/${id}/delete-customer`);
+            // Refresh the list after delete
+            setCustomers(customers.filter(customer => customer._id !== id));
+        } catch (err) {
+            console.error('Error deleting customer!', err);
+        }   
+    }
+};
+
 
     return (
         <div>
@@ -44,6 +56,13 @@ const Dashboard = () => {
                                 <Link to={`/add-service/${customer._id}`} className="action-link">
                                     Add Service
                                 </Link>
+                                <button
+                                onClick={() => handleDelete(customer._id)}
+                                className="action-link"
+                                 style={{ color: 'red', cursor: 'pointer', background: 'none', border: 'none' }}
+                                >
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                     ))}

@@ -9,7 +9,7 @@ const AddService = () => {
         serviceDate: new Date().toISOString().slice(0, 10),
         workDone: '',
         technician: '',
-        nextServiceDueDate: '', // ✅ NEW: State for the manual date
+        nextServiceDueDate: '', 
     });
 
     const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -62,5 +62,14 @@ router.post('/:id/services', async (req, res) => {
         res.status(400).json({ message: 'Error adding service', error: err });
     }
 });
+router.delete('/:id/delete-customer', async (req, res) => {
+    try {
+        const customer = await Customer.findByIdAndDelete(req.params.id);
+        if (!customer) return res.status(404).json({ message: 'Customer not found' });
+        res.json({ message: 'Customer deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
 
 export default router;
