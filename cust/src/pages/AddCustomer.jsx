@@ -17,7 +17,7 @@ const AddCustomer = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5001/api/customers', formData);
+            await axios.post('https://customer-maintain.onrender.com/api/customers', formData);
             navigate('/');
         } catch (err) {
             console.error('Failed to add customer', err);
