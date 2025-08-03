@@ -7,7 +7,7 @@ const CustomerDetails = () => {
     const { customerId } = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:5001/api/customers/${customerId}`)
+        axios.get(`https://customer-maintain.onrender.com/api/customers/${customerId}`)
             .then(res => setCustomer(res.data))
             .catch(err => console.error("Error fetching customer details!", err));
     }, [customerId]);
