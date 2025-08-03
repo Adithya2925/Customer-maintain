@@ -13,7 +13,7 @@ const Dashboard = () => {
     const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this customer?')) {
         try {
-            await axios.delete(`http://localhost:5001/api/customers/${id}/delete-customer`);
+            await axios.delete(`https://customer-maintain.onrender.com/api/customers/${id}/delete-customer`);
             // Refresh the list after delete
             setCustomers(customers.filter(customer => customer._id !== id));
         } catch (err) {
