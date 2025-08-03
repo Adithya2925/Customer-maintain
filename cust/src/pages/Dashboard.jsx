@@ -6,7 +6,7 @@ const Dashboard = () => {
     const [customers, setCustomers] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5001/api/customers')
+        axios.get('https://customer-maintain.onrender.com/api/customers')
             .then(res => setCustomers(res.data))
             .catch(err => console.error('Error fetching customers!', err));
     }, []);
